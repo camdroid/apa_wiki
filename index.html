@@ -13,7 +13,7 @@
       <ul>
         <? for (var j=0; j<data[programName].length; j++) { ?>
           <? var entry = data[programName][j]; ?>
-          <li><a href=<?= entry[2] ?> target='_blank'><?= entry[1] ?></a> - <?= entry[3] ?>. Email <?= entry[4] ?> for more information. Tags: <?= entry[5] ?></li>
+          <li><a href=<?= entry[2] ?> target='_blank'><?= entry[1] ?></a> - <?= entry[3] ?>. Email <a href="mailto:<?= entry[4] ?>" target='_blank'><?= entry[4] ?></a> for more information. Tags: <?= entry[5] ?></li>
         <? } ?>
       </ul>
     <? } ?>
