@@ -19,6 +19,30 @@ function getDataByProgram() {
   return programs;
 }
 
+function getHighlightedTags(tags) {
+  const listOfTags = tags.split(',');
+  var tagsWithColors = {};
+  for (var i=0; i<listOfTags.length; i++) {
+    var entryType = listOfTags[i].trim();
+    tagsWithColors[entryType] = {};
+    switch(entryType) {
+      case "Dog":
+        tagsWithColors[entryType] = '#ffa500';
+        break;
+      case "Intake":
+        tagsWithColors[entryType] = '#7ba9f2';
+        break;
+      case "Outcomes":
+        tagsWithColors[entryType] = '#5fb771';
+        break;
+      case "Cat":
+        tagsWithColors[entryType] = '#9a62ef';
+        break;
+    }
+  }
+  return tagsWithColors;
+}
+
 function getExcludedEntries() {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[1];
   return sheet.getRange("C2:C").getValues();
