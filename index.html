@@ -4,16 +4,19 @@
     <base target="_top">
   </head>
   <? var data = getDataByProgram(); ?>
+  <? var excludedList = getExcludedEntries(); ?>
   <body>
     <? for (var i=0; i<Object.keys(data).length; i++) { ?>
       <? var programName = Object.keys(data)[i]; ?>
-      <? // console.log(programName); ?>
-      <? //console.log(data[programName]); ?>
       <h2><?= programName ?></h2>
       <ul>
         <? for (var j=0; j<data[programName].length; j++) { ?>
           <? var entry = data[programName][j]; ?>
-          <li><a href=<?= entry[2] ?> target='_blank'><?= entry[1] ?></a> - <?= entry[3] ?>. Email <a href="mailto:<?= entry[4] ?>" target='_blank'><?= entry[4] ?></a> for more information. Tags: <?= entry[5] ?></li>
+          <!-- If the entry isn't in the "Deletions" list -->
+          <? var entryIsExcluded = excludedList[0].indexOf(entry[2]) >= 0; ?>
+          <? if (!entryIsExcluded) { ?>
+            <li><a href=<?= entry[2] ?> target='_blank'><?= entry[1] ?></a> - <?= entry[3] ?>. Email <a href="mailto:<?= entry[4] ?>" target='_blank'><?= entry[4] ?></a> for more information. Tags: <?= entry[5] ?></li>
+          <? } ?>
         <? } ?>
       </ul>
     <? } ?>
