@@ -15,10 +15,10 @@
           <!-- If the entry isn't in the "Deletions" list -->
           <? var entryIsExcluded = excludedList[0].indexOf(entry[2]) >= 0; ?>
           <? if (!entryIsExcluded) { ?>
-            <? var tagsWithColors = getHighlightedTags(entry[5]); ?>
-            <li><a href=<?= entry[2] ?> target='_blank'><?= entry[1] ?></a> - <?= entry[3] ?>. Email <a href="mailto:<?= entry[4] ?>" target='_blank'><?= entry[4] ?></a> for more information. Tags:
+            <? var tagsWithColors = getHighlightedTags(entry[6]); ?>
+            <li><a href=<?= entry[2] ?> target='_blank'><?= entry[1] ?></a> - <?= entry[3] ?> Email <a href="mailto:<?= entry[4] ?>" target='_blank'><?= entry[4] ?></a> for more information.<br><br>Tags:
             <? for (var tag in tagsWithColors) { ?>
-              <span style="background-color: <?= tagsWithColors[tag] ?>"><?= tag ?></span>
+              <span style="background-color: <?= tagsWithColors[tag] ?>; border-radius: 5px; padding:2px;"><?= tag ?></span>
             <? } ?>
             </li>
           <? } ?>
